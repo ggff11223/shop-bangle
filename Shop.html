@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website bangle</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="Shop.css">
+
+    <link rel="stylesheet" href="shop.js">
+
+
+</head>
+
+<body>
+
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+
+
+        <a href="#" class="logo">bangle <span>.</span></a>
+
+        <nav class="navbar">
+            <a href="#home">หน้าแรก</a>
+            <a href="#about">เกี่ยวกับ</a>
+            <a href="#products">สินค้า</a>
+            <a href="#review">วิจารณ์</a>
+            <a href="#contact">ติดต่อ</a>
+
+        </nav>
+        <div class="icons">
+
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#" class="fas fa-user"></a>
+
+        </div>
+
+
+
+    </header>
+
+
+    <section class="home" id="home">
+
+        <div class="content">
+
+            <h3>กำไลข้อมือ</h3>
+            <span>กำไลของขวัญอันล้ำค่า </span>
+            <p>กำไลข้อมือ สิ่งที่เป็นของขวัญอันยิ่งใหญ่เพื่อส่งมอบให้แก่คนที่เรารัก</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </section>
+
+    <section class="product" id="product">
+
+        <h1 class="heading">latest <span>product</span></h1>
+
+        <div class="box-container">
+
+            <div class="box1">
+
+                <span class="discount">-10%</span>
+                <div class="image">
+                    <img src="image/1.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                
+                        <a href="#" class="fas fa-share"></a>
+                        <button class="add-to-cart" onclick="addToCart(1550)">Add to Cart</button>
+                    </div>
+                    
+                </div>
+
+                
+
+                <div class="content">
+                    <h3> bangle light green</h3>
+                    <div class="price">1550 บาท </div>
+                </div>
+            </div>
+
+            <div class="box2">
+
+                <span class="discount">-10%</span>
+                <div class="image">
+                    <img src="image/2.jpg" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        
+                        <a href="#" class="fas fa-share"></a>
+                        <button class="add-to-cart" onclick="addToCart(1450)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3> bangle green</h3>
+                    <div class="price">1450 บาท </div>
+                </div>
+            </div>
+
+            <div class="box3">
+
+                <span class="discount">-10%</span>
+                <div class="image">
+                    <img src="image/5.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                        
+                        <a href="#" class="fas fa-share"></a>
+  
+                        <button class="add-to-cart" onclick="addToCart(1350)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3> bangle light brown</h3>
+                    <div class="price">1350 บาท</div>
+                </div>
+            </div>
+
+            <div class="box4">
+
+                <span class="discount">-10%</span>
+                <div class="image">
+                    <img src="image/4.png" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-heart"></a>
+                       
+                        <a href="#" class="fas fa-share"></a>
+
+                        <button class="add-to-cart" onclick="addToCart(1200)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3> bangle black</h3>
+                    <div class="price">1200 บาท</div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="content-cart">
+        <div id="cart-summary">
+            <h2 class="section-title">Cart Summary</h2>
+            <div id="cart-items">
+                <!-- รายการสินค้าในตะกร้าจะปรากฏที่นี่ -->
+            </div>
+            <div id="total" class="total-text">Total: 0 บาท</div>
+        </div>
+        
+    </div>
+
+</section>
+
+<script>
+    const cartItems = [];
+
+    function addToCart(price) {
+        cartItems.push(price);
+        updateCartSummary();
+    }
+
+    function updateCartSummary() {
+        const cartItemsElement = document.getElementById("cart-items");
+        const totalElement = document.getElementById("total");
+
+        const cartItemsHTML = cartItems.map((price, index) => {
+            return `<div>${index + 1}. ${price} บาท</div>`;
+        }).join("");
+        cartItemsElement.innerHTML = cartItemsHTML;
+
+        const totalPrice = cartItems.reduce((total, price) => total + price, 0);
+        const discountedTotalPrice = totalPrice * 0.9; // ลดราคาสินค้าทั้งหมด 10%
+
+        totalElement.textContent = `Total: ${discountedTotalPrice.toFixed(2)} บาท`;
+    }
+</script>
+
+    
+
+
+</body>
+
+</html>
